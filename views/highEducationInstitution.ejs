@@ -1,0 +1,39 @@
+<%- include('header') %>
+
+    <% if (highEducationInstitution.length === 0) { %>
+        <br>
+        <div class="alert alert-info" role="alert">
+            <p>There are no high eduction enstitutions to show, click <a href="/addHEInstitution">here</a> to add a new one.</p> 
+        </div>
+        <br>
+    <% } else { %>
+        <br>
+        <a type="button" class="btn btn-primary" href="/addHEInstitution">Add new high education insttitution.</a>
+        <br><br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Type of institution</th>
+                    <th scope="col">HEI Identifier</th>
+                    <th scope="col">State identifier (3 lettters allowed)</th>
+                    <th scope="col">Institution signature name (2 letters allowed)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% highEducationInstitution.forEach(function(highEducationInstitution, index) { %>
+                <tr>
+                    <td><strong><%= index+1 %></strong></td>
+                    <td><%= highEducationInstitution.TIP_UST %></td>
+                    <td><%= highEducationInstitution.VU_IDENTIFIKATOR %></td>
+                    <td><%= highEducationInstitution.DR_IDENTIFIKATOR %></td>
+                    <td><%= highEducationInstitution.VV_OZNAKA %></td>
+                    <td><a type="button" class="btn btn-warning" href="/editHEInstitutionById/<%= highEducationInstitution.VU_IDENTIFIKATOR %>">Edit</a></td>
+                    <td><a type="button" class="btn btn-danger" href="/deleteHEInstitutionById/<%= highEducationInstitution.VU_IDENTIFIKATOR %>">Delete</a></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } %>
+
+<%- include('footer') %>

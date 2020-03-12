@@ -1,0 +1,23 @@
+<%- include('header') %>
+
+    <form method="post" action="/editEmployeeById/<%= employee.ZAP_REDNI_BROJ %>">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Employee Name</label>
+            <input type="text" class="form-control" id="employeeName" name="employeeName" value="<%= employees.ZAP_IME %>">
+        </div>
+        <div class="form-group">
+            <label for="employeeMidNameFL">Employee Middle Name First Letter</label>
+            <input type="text" class="form-control" id="employeeMidNameFL" name="employeeMidNameFL" value="<%= employees.ZAP_SREDNJE_SLOVO %>">
+        </div>
+        <div class="form-group">
+            <label for="employeeLastName">Employee Last Name</label>
+            <input type="text" class="form-control" id="employeeLastName" name="employeeLastName" value="<%= employees.ZAP_PREZIME %>">
+        </div>
+        <div class="form-group">
+            <label for="employeeID">Employee ID</label>
+            <input type="text" class="form-control" id="employeeID" name="employeeID" value="<%= employees.ZAP_REDNI_BROJ %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+<%- include('footer') %>

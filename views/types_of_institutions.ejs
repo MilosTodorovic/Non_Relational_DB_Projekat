@@ -1,0 +1,34 @@
+<%- include('header') %>
+
+    <% if (types_of_institutions.length === 0) { %>
+        <br>
+        <div class="alert alert-info" role="alert">
+            <p>There are no types of institutions to show, click <a href="/addInstType">here</a> to add a new one.</p> 
+        </div>
+        <br>
+    <% } else { %>
+        <br>
+        <a type="button" class="btn btn-primary" href="/addInstType">Add new institution type.</a>
+        <br><br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Type of institution</th>
+                    <th scope="col">Name of type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% types_of_institutions.forEach(function(types_of_institutions, index) { %>
+                <tr>
+                    <td><strong><%= index+1 %></strong></td>
+                    <td><%= types_of_institutions.TIP_UST %></td>
+                    <td><%= types_of_institutions.TIP_NAZIV %></td>
+                    <td><a type="button" class="btn btn-warning" href="/editPopulatedPlaceById/<%= types_of_institutions.TIP_UST %>">Edit</a></td>
+                    <td><a type="button" class="btn btn-danger" href="/deletePopulatedPlaceById/<%= types_of_institutions.TIP_UST %>">Delete</a></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+<% } %>
+
+<%- include('footer') %>

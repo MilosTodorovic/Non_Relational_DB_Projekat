@@ -1,0 +1,32 @@
+<%- include('header') %>
+
+    <form method="post" action="/addEmployee">
+        <div class="form-group">
+            <label for="employeeName">Employee Name</label>
+            <input type="text" class="form-control" id="employeeName" name="employeeName">
+        </div>
+        <div class="form-group">
+            <label for="employeeMidNameFL">Employee Middle Name First Letter</label>
+            <input type="text" class="form-control" id="employeeMidNameFL" name="employeeMidNameFL">
+        </div>
+        <div class="form-group">
+            <label for="employeeLastName">Employee Last Name</label>
+            <input type="text" class="form-control" id="employeeLastName" name="employeeLastName">
+        </div>
+        <div class="form-group">
+            <label for="employeeID">Employee ID</label>
+            <input type="text" class="form-control" id="employeeID" name="employeeID">
+        </div>
+        <div class="form-group">
+            <label for="inst_type">Institution type</label>
+            <select class="custom-select" id="inst_type" name="inst_type" required>
+                <option selected disabled value="">Select the type of institution...</option>
+                <% employees.forEach(function(types_of_institutions, index) { %>
+                <option value="<%= types_of_institutions.TIP_UST %>"><%= types_of_institutions.TIP_UST %></option>
+                <% }); %>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+<%- include('footer') %>
