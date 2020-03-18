@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="inst_type">Institution type</label>
-            <select class="custom-select" id="inst_type" name="inst_type" required>
+            <select class="custom-select" id="inst_type" name="inst_type" >
                 <option selected disabled value="">Select the type of institution...</option>
                 <% employees.forEach(function(types_of_institutions, index) { %>
                 <option value="<%= types_of_institutions.TIP_UST %>"><%= types_of_institutions.TIP_UST %></option>
