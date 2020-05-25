@@ -98,7 +98,7 @@ app.get('/addEmployee', (req, res) => {
 
 app.post('/addEmployee', (req, res) => {
     let query = 'INSERT INTO employees (ZAP_IME, ZAP_SREDNJE_SLOVO, ZAP_PREZIME, ZAP_REDNI_BROJ, TIP_UST) VALUES (?, ?, ?, ?);';    //? (question marks) are paramaters which the query expecting
-    dbcon.query(query, [req.body.employeeName, req.body.employeeMidNameFL, req.body.employeeLastName, req.body.employeeID], (err) => {   //pass the submitted data to the query as an array (they must be in the same order as the columns in the query)
+dbcon.query(query, [req.body.employeeName, req.body.employeeMidNameFL, req.body.employeeLastName, req.body.employeeID], (err) => {   //pass the submitted data to the query as an array (they must be in the same order as the columns in the query)
         if ( !err ) {
             res.render('message', {  
                 successMessage : 'Employee ' + req.body.employeeName + ' was added successfully.',   
@@ -144,6 +144,10 @@ app.post('/editEmployeeById/:ZAP_REDNI_BROJ', (req, res) => {
         }
     });
 });
+
+
+
+
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
